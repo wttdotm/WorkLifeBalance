@@ -1,0 +1,16 @@
+{
+    "name": "Work Life Balance",
+    "version": "1.0.0",
+    "description": "Annoy Cohortmates into working or relaxing",
+    "manifest_version": 3,
+    "author": "Anna & Morry!",
+    "host_permissions": ["*://*/*"],
+    "permissions": [  "activeTab","tabs","notifications", "scripting"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action":{
+        "default_popup": "index.html"
+
+    }
+}

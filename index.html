@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Work Life Balance
+    </title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            border-radius: 5px;
+            border-color: black;
+            border-width: 2px; 
+            width: 800px;
+            padding: 10px;
+        }
+        .gridClass {
+            display: grid;
+            grid-template-columns: 380px 380px;
+        }
+
+        .gridItem {
+            border: 2px;
+            border-color: black;
+            border-width: 3px;
+            padding: 5px;
+        }
+
+    </style>
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Welcome to Work Life Balance</h1>
+    <h2>Work Life Balance is an extension made to encourage you to balance work and play.</h2>
+    <h3 style="font-family: Apple Chancery;"><i>There has never been a problem that could not be solved with more notificaitons</i></h3>
+    <h5>- Albert Einstein</h5>
+
+    <form>
+    <div class="gridClass">
+
+    <div class="gridItem">
+        <h4>Health Mode or POS Mode</h4>
+        <p><b><i>Health mode</i></b> tells you to take a break from work to go have fun, or take a break from slacking off to get some work done.</p>
+        <p><b><i>POS mode</i></b> simply plays distracting fun alert sound when you are working, or a work alert sound when you are relaxing.</p>
+        <!-- CREATE POS MODE TOGGLE HERE -->
+            <input type='text' id='posinput' value="POS">
+            <p style="font-size:0.5em"><i>Type: 'POS' or 'Health'</i></p>
+            <input type='button' id='btpos' value='Set Mode'>
+    </div>
+    <div class="gridItem">
+        <h4>Interval Range</h4>
+        <p>How often would you like us to check in on you?</p> 
+        <p><b><i>Health mode</i></b> uses this as a regular interval.</p>
+        <p><b><i>POS mode</i></b> uses this as an upper bound for a random interval.</p>
+        <!-- CREATE INTERVAL TOGGLE HERE -->
+            <input type='text' id='intinput' value="60">
+            <p style="font-size:0.5em"><i>Type a number in seconds. 60 = 1 minute. 3600 = 1 hour.</i></p>
+            <input type='button' id='btint' value='Set Interval'>
+    </div>
+
+    <!-- <audio id="my_audio" src="/sounds/slack.mp3"></audio> -->
+    <div class="gridItem">
+        <h4>Work Sites</h4>
+        <p>Add sites you use for work so we can tell when you might be spending too much time on them</p>
+            <input type='text' id='tbinput' value="work website">
+            <p style="font-size:0.5em"><i>eg. github.com</i></p>
+            <input type='button' id='btadd' value='Add'>
+    </div>
+    <div class="gridItem">
+        <h4>Fun Sites</h4>
+        <p>Add sites you use for fun so we can tell when you might be spending too much time on them</p>
+            <input type='text' id='funinput' value="fun website">
+            <p style="font-size:0.5em"><i>eg. reddit.com</i></p>
+            <input type='button' id='btfun' value='Add'>
+    </div>
+
+</div>
+</form>
+    <h2>Confirm Setup</h4>
+    <input type='button' id='btsetup' value='setup'>
+    
+</body>
+</html>
