@@ -4,8 +4,8 @@ let setupYet = false
 //GLOBAL INFO
 
 //site arrays
-const workSiteArr = ["indeed.com", "codesmith.io"]
-const funSiteArr = ["twitter.com", "reddit.com"]
+const workSiteArr = ["indeed.com"]
+const funSiteArr = ["twitter.com"]
 
 //annoy counters
 let numWorkAnnoy = 0
