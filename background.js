@@ -168,14 +168,37 @@ function workInjectedFunction(healthMode, numWorkAnnoy) {
     
     console.log("Health Mode? ",  healthMode)
     if (healthMode) {
-        let alertDiv = document.createElement("WLBdiv")
-        alertDiv.style = "style: block; z-index: 100; background-color: blue; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 70vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh"
-        // alertDiv.innerText = "It looks you have worked a lot, how about a break!"
-        // alertDiv.innerHTML = "It looks like you have worked a lot, how about a break! <input type='button'  onclick='() => {var x = document.getElementById(`WLBdiv`); if (x.style.display === `none`) { x.style.display = `block`; } else { x.style.display = `none`; }}' value='Go away'></input>"
-        alertDiv.innerHTML = `It looks like you have worked a lot. Take a break! This is reminder #${numWorkAnnoy} in a row. <br><input type='button'  value='Go away'></input>`
-        document.body.appendChild(alertDiv)
-    }
+        let currEl = document.getElementsByClassName("WLBAlertDiv")
+        console.log(currEl)
+        if (!currEl.length) {
+            let alertDiv = document.createElement("WLBdiv")
+            alertDiv.style = "style: block; z-index: 100; background-color: blue; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 70vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh"
+            alertDiv.innerHTML = `It looks like you have worked a lot. Take a break! This is reminder #${numWorkAnnoy} in a row. <br><input type='button'  value='Go away' id='dismissButton' ></input>`
+            document.body.appendChild(alertDiv)
+        
+            let button = document.getElementById('dismissButton'); // Assumes element with id='button'
     
+            button.onclick = function() {
+                console.log(alertDiv.style.display)
+                alertDiv.remove()
+            };
+        } else {
+            let list = document.getElementsByClassName("WLBAlertDiv")
+            let alertDiv = list[0]
+            alertDiv.innerHTML = `It looks like you have worked a lot. Take a break! This is reminder #${numWorkAnnoy} in a row. <br><input type='button'  value='Go away' id='dismissButton' ></input>`
+            document.body.appendChild(alertDiv)
+        
+            let button = document.getElementById('dismissButton'); // Assumes element with id='button'
+    
+            button.onclick = function() {
+                console.log(alertDiv.style.display)
+                alertDiv.remove()
+            };
+        }
+    }
+
+
+
     console.log("in injected func")
             //define some kind of HTML thing we wanna add
             //add sytling for the middle of the page
@@ -207,41 +230,38 @@ function funInjectedFunction(healthMode, numFunAnnoy) {
     var snd = Sound("data:audio/wav;base64," + slackSound);
     // var snd = Sound("data:audio/wav;base64," + base64String);
 
-
     console.log("in injected func")
     if (healthMode) {
-        let alertDiv = document.createElement("WLBdiv")
-        alertDiv.style = "style: block;  z-index: 100; background-color: blue; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 70vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh"
-        // alertDiv.innerText = "It looks you have worked a lot, how about a break!"
-        // alertDiv.innerHTML = "It looks like you have worked a lot, how about a break! <input type='button'  onclick='() => {var x = document.getElementById(`WLBdiv`); if (x.style.display === `none`) { x.style.display = `block`; } else { x.style.display = `none`; }}' value='Go away'></input>"
-        alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <input type='button' value='Go away'></input>`
-        document.body.appendChild(alertDiv)
+        let currEl = document.getElementsByClassName("WLBAlertDiv")
+        console.log(currEl)
+        if (!currEl.length) {
+            let alertDiv = document.createElement("WLBdiv")
+            alertDiv.className = "WLBAlertDiv"
+            alertDiv.style = "style: block;  z-index: 100; background-color: blue; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 70vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh"
+            alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <input type='button' id='dismissButton' value='Go away'></input>`
+            document.body.appendChild(alertDiv)
+    
+            let button = document.getElementById('dismissButton'); // Assumes element with id='button'
+    
+            button.onclick = function() {
+                console.log(alertDiv.style.display)
+                alertDiv.remove()
+            };
+        } else {
+            let list = document.getElementsByClassName("WLBAlertDiv")
+            let alertDiv = list[0]
+            alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <input type='button' id='dismissButton' value='Go away'></input>`
+            let button = document.getElementById('dismissButton'); // Assumes element with id='button'
+    
+            button.onclick = function() {
+                console.log(alertDiv.style.display)
+                alertDiv.remove()
+            };
+        }
     }
 
 }  
 
 
-
-// function showNotification() {
-//     console.log("showNotification running")
-//     // alert('Hello, World!')
-//     chrome.notifications.create( {
-//       iconUrl: chrome.runtime.getURL('testimg.jpeg'),
-//       title: 'HELLO THIS IS A NOTIFICAITON',
-//       type: 'basic',
-//       message: 'URL is',
-//       buttons: [{ title: 'Click to close' }],
-//       isClickable: true,
-//       priority: 2,
-//     }, function() {});
-
-// }
-
-
-
-//   <div style="border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 70vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px">
-
-//     <p>It looks you have worked a lot, how about a break!</p>
-//   </div>
 
 
