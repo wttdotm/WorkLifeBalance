@@ -172,8 +172,9 @@ function workInjectedFunction(healthMode, numWorkAnnoy) {
         console.log(currEl)
         if (!currEl.length) {
             let alertDiv = document.createElement("WLBdiv")
-            alertDiv.style = "style: block; z-index: 100; background-color: blue; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 70vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh"
-            alertDiv.innerHTML = `It looks like you have worked a lot. Take a break! This is reminder #${numWorkAnnoy} in a row. <br><input type='button'  value='Go away' id='dismissButton' ></input>`
+            alertDiv.className = "WLBAlertDiv"
+            alertDiv.style = "style: block; z-index: 100; background-color: red; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 80vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh; left: 10vw; color: white"
+            alertDiv.innerHTML = `It looks like you have worked a lot. Take a break! This is reminder #${numWorkAnnoy} in a row. <br> <input type="button" id="dismissButton" value="Go away" style="border-color: white; color: white; border-radius: 10px; border-style: solid; background-color:red; border-width: 2px; padding: 4px;" onmouseover="this.style.backgroundColor='crimson'" onmouseout="this.style.backgroundColor='red'"></input>`
             document.body.appendChild(alertDiv)
         
             let button = document.getElementById('dismissButton'); // Assumes element with id='button'
@@ -185,8 +186,8 @@ function workInjectedFunction(healthMode, numWorkAnnoy) {
         } else {
             let list = document.getElementsByClassName("WLBAlertDiv")
             let alertDiv = list[0]
-            alertDiv.innerHTML = `It looks like you have worked a lot. Take a break! This is reminder #${numWorkAnnoy} in a row. <br><input type='button'  value='Go away' id='dismissButton' ></input>`
-            document.body.appendChild(alertDiv)
+            alertDiv.innerHTML = `It looks like you have worked a lot. Take a break! This is reminder #${numWorkAnnoy} in a row. <br> <input type="button" id="dismissButton" value="Go away" style="border-color: white; color: white; border-radius: 10px; border-style: solid; background-color:red; border-width: 2px; padding: 4px;" onmouseover="this.style.backgroundColor='crimson'" onmouseout="this.style.backgroundColor='red'"></input>`
+            //  
         
             let button = document.getElementById('dismissButton'); // Assumes element with id='button'
     
@@ -237,9 +238,12 @@ function funInjectedFunction(healthMode, numFunAnnoy) {
         if (!currEl.length) {
             let alertDiv = document.createElement("WLBdiv")
             alertDiv.className = "WLBAlertDiv"
-            alertDiv.style = "style: block;  z-index: 100; background-color: blue; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 70vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh"
-            alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <input type='button' id='dismissButton' value='Go away'></input>`
+            alertDiv.style = "style: block;  z-index: 100; background-color: red; border-style: solid;vertical-align: middle; border-color: black;text-align: center; width: 80vw; height: 200px; border-color: black; border-width: 3px; font-family: arial; font-size: 50px; position: fixed; bottom: 50vh; left: 10vw; color: white"
+            alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <br> <input type="button" id="dismissButton" value="Go away" style="border-color: white; color: white; border-radius: 10px; border-style: solid; background-color:red; border-width: 2px; padding: 4px;" onmouseover="this.style.backgroundColor='crimson'" onmouseout="this.style.backgroundColor='red'"></input>`
+            // alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <br> <input type='button' id='dismissButton' value='Go away'></input>`
             document.body.appendChild(alertDiv)
+
+            // <input type="button" id="dismissButton" value="Go away" style="border-color: white; color: white; border-radius: 10px; border-style: solid; background-color:red; border-width: 2px; padding: 4px;" onmouseover="this.style.backgroundColor='crimson'" onmouseout="this.style.backgroundColor='red'">
     
             let button = document.getElementById('dismissButton'); // Assumes element with id='button'
     
@@ -250,7 +254,7 @@ function funInjectedFunction(healthMode, numFunAnnoy) {
         } else {
             let list = document.getElementsByClassName("WLBAlertDiv")
             let alertDiv = list[0]
-            alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <input type='button' id='dismissButton' value='Go away'></input>`
+            alertDiv.innerHTML = `Wow. Looks like a lot of fun. Maybe work though. idk. Not like you've gotten this notification ${numFunAnnoy} times in a row. <br> <input type="button" id="dismissButton" value="Go away" style="border-color: white; color: white; border-radius: 10px; border-style: solid; background-color:red; border-width: 2px; padding: 4px;" onmouseover="this.style.backgroundColor='crimson'" onmouseout="this.style.backgroundColor='red'"></input>`
             let button = document.getElementById('dismissButton'); // Assumes element with id='button'
     
             button.onclick = function() {
